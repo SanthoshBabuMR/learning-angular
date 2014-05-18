@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="utf-8" />
+	<title>Shopping Cart</title>
+	<link rel="stylesheet" type="text/css" href="/public/css/render.css" />
+</head>
+<body>
+	<div class="doc-wrap">
+	<!-- doc-wrap begin -->
+		
+		<h1>Shopping Cart</h1>
+		<section ng-controller="ShoppingCartController">
+			<h1>Your Order</h1>
+			<div class="grid-d">
+			<!-- grid-c begin -->
+				<div ng-repeat="item in items" class="row">
+					<!-- row begin -->
+						<div class="block-a">
+							<span>
+								{{item.title}}
+							</span>
+						</div>
+						<div class="block-b">
+							<input type="text" ng-model="item.quantity">
+						</div>
+						<div class="block-c">
+							<span>
+								{{item.price | currency}}
+							</span>
+						</div>
+						<div class="block-d">
+							<span>
+							{{item.price * item.quantity | currency}}
+						</span>
+						</div>
+						<div class="block-e">
+							<button ng-click="remove(index)">Remove</button>
+						</div>
+					<!-- row end -->
+				</div>
+			<!-- grid-c begin -->
+			</div>
+		</section>
+		
+		<!-- script begin -->
+		<script src="/public/script/lib/angular/angular.js"></script>
+		<script src="/public/script/controller/shoppingCartController.js"></script>
+		<!-- script end -->
+
+	<!-- doc-wrap end -->
+	</div>	
+</body>
+</html>
